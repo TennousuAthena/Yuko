@@ -1,14 +1,13 @@
 <?php
 
-$dname = 'Yusi';
+$dname = 'Yuko';
 
 add_action( 'after_setup_theme', 'deel_setup' );
 
-include('admin/Yusi.php');
+include('admin/Yuko.php');
 include('widgets/index.php');
 
 function deel_setup(){
-  	date_default_timezone_set( 'PRC' );
 	//去除头部冗余代码
 	remove_action( 'wp_head',   'feed_links_extra', 3 ); 
 	remove_action( 'wp_head',   'rsd_link' ); 
@@ -38,13 +37,13 @@ function deel_setup(){
 	add_action('comment_post','comment_mail_notify'); 
 
 	//自动勾选评论回复邮件通知，不勾选则注释掉 
-	// add_action('comment_form','deel_add_checkbox');
+    add_action('comment_form','deel_add_checkbox');
 
 	//评论表情改造，如需更换表情，img/smilies/下替换
 	add_filter('smilies_src','deel_smilies_src',1,10); 
 
 	//文章末尾增加版权
-	//add_filter('the_content','deel_copyright');    
+	add_filter('the_content','deel_copyright');
 
 	//移除自动保存和修订版本
 	if( dopt('d_autosave_b') ){
@@ -168,29 +167,26 @@ function deel_breadcrumbs(){
 function footerScript() {
     if ( !is_admin() ) {
         wp_deregister_script( 'jquery' );
- 	wp_register_script( 'jquery','//libs.baidu.com/jquery/1.8.3/jquery.min.js', false,'2.0');
-	wp_enqueue_script( 'jquery' );
-        wp_register_script( 'default', get_template_directory_uri() . '/js/jquery.js', false, '2.0', dopt('d_jquerybom_b') ? true : false );   
-        wp_enqueue_script( 'default' );   
-	wp_register_style( 'style', get_template_directory_uri() . '/style.css',false,'1.0' );
-	wp_enqueue_style( 'style' ); 
+        wp_register_script( 'jquery','https://cdn.jsdelivr.net/npm/jquery@1.8.3/tmp/jquery.min.js', false,'2.0');
+        wp_enqueue_script( 'jquery' );
+        wp_register_script( 'default', get_template_directory_uri() . '/js/main.js', false, '2.0', dopt('d_jquerybom_b') ? true : false );
+        wp_enqueue_script( 'default' );
+        wp_register_style( 'fa', get_template_directory_uri() . '/css/font-awesome.min.css',false,'1.0' );
+        wp_enqueue_style( 'fa' );
+        wp_register_style( 'style', get_template_directory_uri() . '/style.css',false,'1.0' );
+        wp_enqueue_style( 'style' );
     }  
 }  
 add_action( 'wp_enqueue_scripts', 'footerScript' );
 
-//add_action( 'wp_footer', 'wpjam_page_speed' );
-function wpjam_page_speed() {
-  date_default_timezone_set( get_option( 'timezone_string' ) );
-  $content  = '[ ' . date( 'Y-m-d H:i:s T' ) . ' ] ';
-  $content .= '页面生成时间 ';
-  $content .= timer_stop( $display = 0, $precision = 2 );
-  $content .= ' 查询 ';
-  $content .= get_num_queries();
-  $content .= ' 次';
-  if( ! current_user_can( 'administrator' ) ) $content = "<!-- $content -->";
-  echo $content;
+//add_action( 'wp_footer', 'wppage_speed' );
+function wppage_speed() {
+    $content = sprintf('Totally %d Queries in %.3f Seconds, %.2fMB Memory in use',
+        get_num_queries(), timer_stop(0, 3), memory_get_peak_usage() / 1024 / 1024
+    );
+//  if( ! current_user_can( 'administrator' ) ) $content = "<!-- $content -->";
+    echo $content;
 }
-
 
 if ( ! function_exists( 'deel_paging' ) ) :
 function deel_paging() {
@@ -226,9 +222,24 @@ function deel_strimwidth($str ,$start , $width ,$trimmarker ){
     return $output.$trimmarker;
 }
 
-function dopt($e){
-		return stripslashes(get_option($e));
-	}
+/**
+ * 返回配置内容
+ * @param string $e
+ * @param bool $echo
+ * @param string $default
+ * @return string
+ */
+function dopt(string $e, $echo = false, string $default = ""): string
+{
+    $return = stripslashes(trim(get_option($e)));
+    if($return === ""){
+        $return = $default;
+    }
+    if($echo){
+        echo $return;
+    }
+    return $return;
+}
 
 if ( ! function_exists( 'deel_views' ) ) :
 function deel_record_visitors(){
@@ -257,19 +268,12 @@ function deel_views($after=''){
 endif;
 
 //baidu分享
-$dHasShare = false;
 function deel_share(){
-	if( !dopt('d_bdshare_b') ) return false;
-  echo '<span class="action action-share bdsharebuttonbox"><i class="fa fa-share-alt"></i>分享 (<span class="bds_count" data-cmd="count" title="累计分享0次">0</span>)<div class="action-popover"><div class="popover top in"><div class="arrow"></div><div class="popover-content"><a href="#" class="sinaweibo fa fa-weibo" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_qzone fa fa-star" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="tencentweibo fa fa-tencent-weibo" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="qq fa fa-qq" data-cmd="sqq" title="分享到QQ好友"></a><a href="#" class="bds_renren fa fa-renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_weixin fa fa-weixin" data-cmd="weixin" title="分享到微信"></a><a href="#" class="bds_more fa fa-ellipsis-h" data-cmd="more"></a></div></div></div></span>';
-  global $dHasShare;
-  $dHasShare = true;
+	return false;
 }
 
-
-
-
-function deel_avatar_default(){ 
-  return get_bloginfo('template_directory').'/img/default.png';
+function deel_avatar_default(){
+    return dopt("d_default_avatar", false, get_bloginfo('template_directory').'/img/default.png');
 }
 
 //评论头像缓存
@@ -286,10 +290,19 @@ function deel_avatar($avatar) {
   else  
 	$avatar = strtr($avatar, array($g => $w.'/avatar/'.$f.'.png'));
   if ( filesize($e) < 500 ) 
-	copy(get_bloginfo('template_directory').'/img/default.png', $e);
+	copy(get_bloginfo('template_directory').'/img/default.png?999', $e);
   return $avatar;
 }
 
+/**
+ * @param $avatar
+ * @return array|string|string[]
+ */
+function replaceAvatar($avatar) {
+    $avatar = str_replace(array("www.gravatar.com/avatar","0.gravatar.com/avatar","1.gravatar.com/avatar","2.gravatar.com/avatar"),"gravatar.loli.net/avatar",$avatar);
+    return $avatar;
+}
+add_filter('get_avatar', 'replaceAvatar');
 
 //关键字
 function deel_keywords() {
@@ -432,7 +445,7 @@ function smilies_reset() {
           ':?:' => 'icon_question.gif',
     );
 }
-smilies_reset();
+//smilies_reset();
 
 
 //阻止站内文章Pingback 
@@ -516,13 +529,32 @@ function deel_copyright($content) {
 		if( $show ){
 			$content.= '<p>来源：'.$show.'</p>';
 		}
-		$content.= '<p>转载请注明：<a href="'.get_bloginfo('url').'">'.get_bloginfo('name').'</a> &raquo; <a href="'.get_permalink().'">'.get_the_title().'</a></p>';
+		$content.= '<hr/><div class="joe_detail__copyright">
+    <div class="copyright_content">
+        <div class="item">
+            <span><i class="fa fa-user-circle" aria-hidden="true"></i> 版权归属：</span>
+            <span class="text"> '. get_the_author() .' </span>
+        </div>
+        <div class="item">
+            <span><i class="fa fa-link" aria-hidden="true"></i> 本文链接：</span>
+            <span class="text">
+                <a class="link" href="'. get_permalink() .'" rel="noopener noreferrer nofollow">'. get_permalink() .'</a>
+            </span>
+        </div>
+        <div class="item">
+            <span><i class="fa fa-share-alt-square" aria-hidden="true"></i> 本作品采用</span>
+            <span class="text">
+                《<a class="link" href="//creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener noreferrer nofollow">CC BY-NC-SA 4.0</a>》许可协议授权
+            </span>
+        </div>
+    </div>
+</div>';
 	}
 	return $content;
 }
 
 //时间显示方式‘xx以前’
-function time_ago( $type = 'commennt', $day = 7 ) {
+function time_ago( $type = 'comment', $day = 7 ) {
   $d = $type == 'post' ? 'get_post_time' : 'get_comment_time';
   if (time() - $d('U') > 60*60*24*$day) return;
   echo ' (', human_time_diff($d('U'), strtotime(current_time('mysql', 0))), '前)';
@@ -556,7 +588,7 @@ function deel_comment_list($comment, $args, $depth) {
 
   //头像
   echo '<div class="c-avatar">';
-  echo str_replace(' src=', ' data-original=', get_avatar( $comment->comment_author_email, $size = '54' , deel_avatar_default())); 
+  echo str_replace(' src=', ' data-original=', get_avatar( $comment->comment_author_email, $size = '54' , deel_avatar_default()));
   //内容
   echo '<div class="c-main" id="div-comment-'.get_comment_ID().'">';
 	echo str_replace(' src=', ' data-original=', convert_smilies(get_comment_text()));
@@ -663,13 +695,9 @@ if (version_compare($wp_version, '5.1.1', '>=')) {
 
 //评论过滤  
 function refused_spam_comments( $comment_data ) {  
-$pattern = '/[一-龥]/u';  
-$jpattern ='/[ぁ-ん]+|[ァ-ヴ]+/u';
+$pattern = '/[一-龥]/u';
 if(!preg_match($pattern,$comment_data['comment_content'])) {  
-err('写点汉字吧，博主外语很捉急！You should type some Chinese word!');  
-} 
-if(preg_match($jpattern, $comment_data['comment_content'])){
-err('日文滚粗！Japanese Get out！日本語出て行け！ You should type some Chinese word！');  
+err('Are you bot?');
 }
 return( $comment_data );  
 }  
@@ -761,7 +789,7 @@ function bigfa_like(){
 function hot_posts_list($days=7, $nums=10) { 
     global $wpdb;
     $today = date("Y-m-d H:i:s");
-    $daysago = date( "Y-m-d H:i:s", strtotime($today) - ($days * 24 * 60 * 60) );  
+    $daysago = date( "Y-m-d H:i:s", strtotime($today) - ((int)$days * 24 * 60 * 60) );
     $result = $wpdb->get_results("SELECT comment_count, ID, post_title, post_date FROM $wpdb->posts WHERE post_date BETWEEN '$daysago' AND '$today' ORDER BY comment_count DESC LIMIT 0 , $nums");
     $output = '';
     if(empty($result)) {

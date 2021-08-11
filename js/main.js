@@ -22,7 +22,7 @@ $('.toggle-search').click(function(){
 );
 	// lazy avatar
 	$('.content .avatar, .sidebar .avatar, .pagecontent .avatar').lazyload({
-		placeholder: _deel.url+'/img/default.png',
+		placeholder: _deel.url+'/img/default.png?123',
 		event: 'scrollstop'
 	});
 	$('.wp-smiley').lazyload({
@@ -161,7 +161,7 @@ $('.toggle-search').click(function(){
 
 $.fn.postLike = function() {
 	if ($(this).hasClass('actived')) {
-		return alert('已经点过赞啦，记性差还是手贱呢！')
+		return alert('似乎已经点过赞啦')
 	} else {
 		$(this).addClass('actived');
 		var id = $(this).data("id"),
@@ -189,9 +189,6 @@ $.fn.postLike = function() {
 $(document).on("click", "#Addlike",function() {
 	$(this).postLike();
 });
-	/* event click
-	 * ====================================================
-	*/
 	$(document).on('click', function(e){
         e = e || window.event;
         var target = e.target || e.srcElement, _ta = $(target)

@@ -15,7 +15,7 @@
 				?>
 				<span class="muted"><i class="fa fa-user"></i> <?php echo get_the_author() ?></span>
 				<time class="muted"><i class="fa fa-clock-o"></i> <?php echo timeago( get_gmt_from_date(get_the_time('Y-m-d G:i:s')) )?></time>
-				<span class="muted" style="display:none;"><i class="fa fa-eye"></i> <?php deel_views('℃'); ?></span>
+				<span class="muted" style="display:none;"><i class="fa fa-eye"></i> <?php deel_views('次'); ?></span>
 				<?php if ( comments_open() ) echo '<span class="muted"><i class="fa fa-comments-o"></i> <a href="'.get_comments_link().'">'.get_comments_number('0', '1', '%').'评论</a></span>'; ?>
 				<?php edit_post_link('[编辑]'); ?>
 			</div>

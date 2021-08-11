@@ -1,9 +1,9 @@
 <!DOCTYPE HTML>
-<html>
+<html lang="zh-cmn-Hans">
 <head>
 <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=10,IE=9,IE=8">
-<!-- <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />  -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="renderer" content="webkit">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
 <title><?php wp_title('-', true, 'right');  echo get_option('blogname'); if (is_home ()) echo get_option('blogdescription'); if ($paged > 1) echo '-Page ', $paged; ?></title>
 <?php
@@ -23,8 +23,6 @@ window._deel = {name: '<?php bloginfo('name') ?>',url: '<?php echo get_bloginfo(
 <?php 
 wp_head(); 
 if( dopt('d_headcode_b') ) echo dopt('d_headcode'); ?>
-<!--[if lt IE 9]><script src="<?php bloginfo('template_url'); ?>/js/html5.js"></script><script src="<?php bloginfo('template_url'); ?>/js/selectivizr-min.js"></script><![endif]-->
-<!--[if lte IE 8]> <![endif]-->
 <script src="<?php bloginfo('template_url'); ?>/js/selectivizr-min.js"></script>
 </head>
 <body <?php body_class(); ?>>
@@ -52,7 +50,15 @@ if( dopt('d_headcode_b') ) echo dopt('d_headcode'); ?>
 			$u_name = get_user_meta($uid,'nickname',true);
 		?>
 			<div class="pull-right">
-				<?php if(is_user_logged_in()){echo '<i class="fa fa-user"></i> '.$u_name.' &nbsp; '; echo ' &nbsp; &nbsp; <i class="fa fa-power-off"></i> ';}else{echo '<i class="fa fa-user"></i> ';}; wp_loginout(); ?>
+				<?php
+                if(is_user_logged_in()){
+				    echo '<i class="fa fa-user"></i> '.$u_name.' &nbsp; ';
+				    echo ' &nbsp; &nbsp; <i class="fa fa-power-off"></i> ';
+				}else{
+                    echo '<i class="fa fa-user-plus"></i> <a href="/wp-login.php?action=register">注册</a> ';
+				    echo '<i class="fa fa-user"></i> ';
+				};
+				wp_loginout(); ?>
 			</div>
 		<?php } ?>
 		<div class="toptip"><strong class="text-success"><i class="fa fa-volume-up"></i> </strong> <?php echo dopt('d_tui'); ?></div>

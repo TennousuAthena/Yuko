@@ -1,8 +1,4 @@
-<?php 
-/*
-	template name: 读者墙
-	description: template for yusi123.com Yusi theme 
-*/
+<?php
 get_header();
 function readers_wall( $outer='1',$timer='100',$limit='100' ){
 	global $wpdb;

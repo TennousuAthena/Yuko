@@ -132,8 +132,8 @@ if(! isset($ALLOWED_SITES)){
 	$ALLOWED_SITES = array (
 		'flickr.com',
 		'staticflickr.com',
-		'yusi123.com',
-		'images.yusi123.com',
+		'i.qmcmc.cn',
+        'thiscatdoesnotexist.com',
 		'upload.wikimedia.org',
 		'photobucket.com',
 		'imgur.com',
