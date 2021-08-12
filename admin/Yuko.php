@@ -1,6 +1,6 @@
 <?php
 $themename = $dname . '主题';
-$options = array("d_beian", "d_default_avatar", "d_description", "d_keywords", "d_tui", "d_sticky_b", "d_sticky_count", "d_linkpage_cat", "d_tougao_b", "d_tougao_time", "d_tougao_mailto", "d_avatar_b", "d_avatarDate", "d_sideroll_b", "d_sideroll_1", "d_sideroll_2", "d_pingback_b", "d_autosave_b", "d_tg", "d_tg_b", "d_weibo_b", "d_weibo", "d_facebook_b", "d_facebook", "d_twitter_b", "d_twitter", "d_rss", "d_qqContact_b", "d_qqContact", "d_weixin_b", "d_weixin", "d_emailContact_b", "d_emailContact", "d_track_b", "d_track", "d_headcode_b", "d_headcode", "d_footcode_b", "d_footcode", "d_adsite_01_b", "d_adsite_01", "d_adindex_02_b", "d_adindex_02", "d_adindex_01_b", "d_adindex_01", "d_adindex_03_b", "d_adindex_03", "d_adpost_01_b", "d_adpost_01", "d_adpost_02_b", "d_adpost_02", "d_adpost_03_b", "d_adpost_03", "d_sign_b", "d_jquerybom_b", "d_ajaxpager_b", "d_thumbnail_b", "d_bdshare_b", "d_related_count", "d_post_views_b", "d_post_author_b", "d_post_comment_b", "d_post_time_b", "hot_list_title", "hot_list_number", "hot_list_date", "hot_list_check", "d_post_like_b", "d_singleMenu_b", "Mobiled_adindex_02_b", "Mobiled_adindex_02", "Mobiled_adpost_01_b", "Mobiled_adpost_01", "Mobiled_adpost_02_b", "Mobiled_adpost_02", "d_spamComments_b", "t_appkey_tsina");
+$options = array("d_beian", "d_default_avatar", "d_description", "d_keywords", "d_tui", "d_sticky_b", "d_sticky_count", "d_linkpage_cat", "d_tougao_b", "d_tougao_time", "d_tougao_mailto", "d_avatar_b", "d_avatarDate", "d_sideroll_b", "d_sideroll_1", "d_sideroll_2", "d_pingback_b", "d_autosave_b", "d_tg", "d_tg_b", "d_weibo_b", "d_weibo", "d_facebook_b", "d_facebook", "d_twitter_b", "d_twitter", "d_rss", "d_qqContact_b", "d_qqContact", "d_weixin_b", "d_weixin", "d_emailContact_b", "d_emailContact", "d_track_b", "d_track", "d_headcode_b", "d_headcode", "d_footcode_b", "d_footcode", "d_adsite_01_b", "d_adsite_01", "d_adindex_02_b", "d_adindex_02", "d_adindex_01_b", "d_adindex_01", "d_adindex_03_b", "d_adindex_03", "d_adpost_01_b", "d_adpost_01", "d_adpost_02_b", "d_adpost_02", "d_adpost_03_b", "d_adpost_03", "d_sign_b", "d_jquerybom_b", "d_ajaxpager_b", "d_thumbnail_b", "d_related_count", "d_post_views_b", "d_post_author_b", "d_post_comment_b", "d_post_time_b", "hot_list_title", "hot_list_number", "hot_list_date", "hot_list_check", "d_post_like_b", "d_singleMenu_b", "Mobiled_adindex_02_b", "Mobiled_adindex_02", "Mobiled_adpost_01_b", "Mobiled_adpost_01", "Mobiled_adpost_02_b", "Mobiled_adpost_02", "d_spamComments_b", "t_appkey_tsina");
 function mytheme_add_admin()
 {
     global $themename, $options;
@@ -227,13 +227,6 @@ function mytheme_admin()
                                 echo 'checked="checked"';
                             }
                             ?>>开启用户登录信息
-                        </label>
-                        <label class="checkbox inline">
-                            <input type="checkbox" id="d_bdshare_b" name="d_bdshare_b" <?php
-                            if (dopt('d_bdshare_b')) {
-                                echo 'checked="checked"';
-                            }
-                            ?>>开启百度分享
                         </label>
                         新浪微博 Appkey：<input style="width:100px;" name="t_appkey_tsina" id="t_appkey_tsina" type="text" value="<?php
                         if (dopt('t_appkey_tsina')) {

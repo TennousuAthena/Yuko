@@ -59,7 +59,7 @@ get_header();
                         <span class="muted"><?php comments_number('', '1评论', '%评论'); ?></span>
                     </li>
                 <?php endforeach; ?>
-                </ul>
+                </article>
             </div>
             </article>
 

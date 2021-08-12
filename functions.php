@@ -269,7 +269,6 @@ function deel_views($after=''){
 }
 endif;
 
-//baidu分享
 function deel_share(){
 	return false;
 }

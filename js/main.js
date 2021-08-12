@@ -27,7 +27,7 @@ $('.toggle-search').click(function(){
 		event: 'scrollstop'
 	});
 
-	if( _deel.ajaxpager ){
+	if( _deel.ajaxpager && $(".content").length > 0 ){
 		let ias = new InfiniteAjaxScroll('.content', {
 			    container : '.content',
 			    item: '.excerpt',
@@ -63,19 +63,6 @@ $('.toggle-search').click(function(){
             title: '查看关于 ' + $(this).text() + ' 的文章'
         })
     })
-    window._bd_share_config = {
-        common: {
-            "bdText": '『'+$('title').text()+'』'+$('.article-content p:lt(2)').text(),
-            "bdMini": "2",
-            "bdMiniList": false,
-            "bdPic": $('.article-content img:first') ? $('.article-content img:first').attr('src') : '',
-            "bdStyle": "0",
-            "bdSize": "24"
-        },
-        share: [{
-            bdCustomStyle:'/wp-content/themes/yusi/share.css'
-        }],
-    }
 
 	/* components
 	 * ====================================================
