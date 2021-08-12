@@ -23,7 +23,6 @@ window._deel = {name: '<?php bloginfo('name') ?>',url: '<?php echo get_bloginfo(
 <?php 
 wp_head(); 
 if( dopt('d_headcode_b') ) echo dopt('d_headcode'); ?>
-<script src="<?php bloginfo('template_url'); ?>/js/selectivizr-min.js"></script>
 </head>
 <body <?php body_class(); ?>>
 <header id="header" class="header">

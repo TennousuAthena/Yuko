@@ -163,12 +163,14 @@ function deel_breadcrumbs(){
     return '<a title="返回首页" href="'.get_bloginfo('url').'"><i class="fa fa-home"></i></a> <small>></small> '.get_category_parents($category->term_id, true, ' <small>></small> ').'<span class="muted">'.get_the_title().'</span>';
 }
 
-// 取消原有jQuery
 function footerScript() {
     if ( !is_admin() ) {
+        // 取消原有jQuery
         wp_deregister_script( 'jquery' );
-        wp_register_script( 'jquery','https://cdn.jsdelivr.net/npm/jquery@1.8.3/tmp/jquery.min.js', false,'2.0');
+        wp_register_script( 'jquery',get_template_directory_uri() . '/js/jquery.min.js', false,'1.8.3');
         wp_enqueue_script( 'jquery' );
+        wp_register_script( 'scroll',get_template_directory_uri() . '/js/infinite-ajax-scroll.min.js', false,'1.8.3');
+        wp_enqueue_script( 'scroll' );
         wp_register_script( 'default', get_template_directory_uri() . '/js/main.js', false, '2.0', dopt('d_jquerybom_b') ? true : false );
         wp_enqueue_script( 'default' );
         wp_register_style( 'fa', get_template_directory_uri() . '/css/font-awesome.min.css',false,'1.0' );
@@ -273,7 +275,7 @@ function deel_share(){
 }
 
 function deel_avatar_default(){
-    return dopt("d_default_avatar", false, get_bloginfo('template_directory').'/img/default.png');
+    return dopt("d_default_avatar", false, get_bloginfo('template_directory').'/img/default.jpg');
 }
 
 //评论头像缓存
@@ -290,7 +292,7 @@ function deel_avatar($avatar) {
   else  
 	$avatar = strtr($avatar, array($g => $w.'/avatar/'.$f.'.png'));
   if ( filesize($e) < 500 ) 
-	copy(get_bloginfo('template_directory').'/img/default.png?999', $e);
+	copy(get_bloginfo('template_directory').'/img/default.jpg?999', $e);
   return $avatar;
 }
 
@@ -650,15 +652,14 @@ function DemoUrl($atts, $content=null) {
 }
 add_shortcode('dm' , 'DemoUrl' );
 
-//欲思@添加编辑器快捷按钮
-add_action('admin_print_scripts', 'my_quicktags');
+add_action('admin_enqueue_scripts', 'my_quicktags');
 function my_quicktags() {
     wp_enqueue_script(
         'my_quicktags',
         get_stylesheet_directory_uri().'/js/my_quicktags.js',
         array('quicktags')
     );
-    }; 
+};
 /**
  * 修改评论回复按钮链接
  */

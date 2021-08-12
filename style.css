@@ -1781,7 +1781,7 @@ button.btn.btn-mini, input[type="submit"].btn.btn-mini {
 .pagination-loading {
     text-align: center;
     color: #666;
-    line-height: 39px;
+    line-height: 1.5rem;
 }
 .commentnav {
     overflow:hidden;
@@ -3508,7 +3508,7 @@ a.label-inverse:hover .label-arrow, a.badge-inverse:hover .label-arrow {
     display: none;
 }
 #comment {
-    *width: 98.3%
+    background: #fff url(./img/comment.jpg) no-repeat right bottom;
 }
 .comt-smilie {
     cursor: pointer;
@@ -4795,4 +4795,10 @@ body{
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+}
+.trigger{
+    color: #666;
+    line-height: 1.5rem;
+    cursor:pointer;
+    text-align: center;
 }

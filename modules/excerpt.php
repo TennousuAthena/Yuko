@@ -46,4 +46,6 @@ if($diff<12){echo '<img src="'.get_bloginfo("template_url").'/img/new.gif" alt="
 <a href="javascript:;" data-action="ding" data-id="<?php the_ID(); ?>" id="Addlike" class="action<?php if(isset($_COOKIE['bigfa_ding_'.$post->ID])) echo ' actived';?>"><i class="fa fa-heart-o"></i><span class="count"><?php if( get_post_meta($post->ID,'bigfa_ding',true) ){ echo get_post_meta($post->ID,'bigfa_ding',true); } else {echo '0';}?></span>喜欢</a></span><?php } ?></p>
 </article>
 <?php endwhile; wp_reset_query(); ?>
+    <div class="pagination-loading"><i class="fa fa-spinner fa-spin"></i> 数据载入中...</div>
+    <div id="trigger" class="trigger"><span>ヾ(•ω•`)o 点击加载更多</span></div>
 <?php deel_paging(); ?>
