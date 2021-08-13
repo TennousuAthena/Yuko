@@ -1736,7 +1736,7 @@ button.btn.btn-mini, input[type="submit"].btn.btn-mini {
 }
 .pagination {
     padding:20px 0 15px 0;
-    background-color:#fff;
+    background-color: rgba(248, 251, 253, 0.55);
     text-align:center
 }
 .pagination ul {
