@@ -1,3 +1,12 @@
+/*
+ Theme Name:   Yuko
+ Theme URI:    https://git.qmcmc.cn/qctech/Yuko
+ Author:       Tennousuathena & Yusi
+ Author URI:   https://lemoe.cn
+ Version:      2.0.0
+*/
+
+
 .copyright_content{
     padding: 15px;
     background: #f7f7f7;
@@ -1340,7 +1349,8 @@ button.btn.btn-mini, input[type="submit"].btn.btn-mini {
     background-image: -o-linear-gradient(45deg, #16a085 1%, #1abc9c 45%, #16a085 97%);
     background-image: -webkit-linear-gradient(45deg, #16a085 1%, #1abc9c 45%, #16a085 97%);
     background-image: linear-gradient(45deg, #16a085 1%, #1abc9c 45%, #16a085 97%);
-    position:relative
+    position:relative;
+    opacity: 0.9;
 }
 .container-inner {
     max-width:1226px;
@@ -1829,7 +1839,7 @@ button.btn.btn-mini, input[type="submit"].btn.btn-mini {
 .speedbar {
     clear:both;
     color:#666;
-    background-color:#fbfbfb;
+    background-color: rgba(248, 251, 253, 0.75);
     padding:8px 20px 18px;
     line-height: 25px;
     *zoom:1;
@@ -2323,11 +2333,10 @@ a.label-inverse:hover .label-arrow, a.badge-inverse:hover .label-arrow {
     color: #1abc9c;
 }
 .excerpt {
-    background-color:#fff;
+    background-color: rgba(248, 251, 253, 0.75);
     padding:20px 15px 20px 20px;
     margin-bottom:10px;
     position:relative;
-    *zoom:1;
     clear:both;
 }
 .excerpt:before, .excerpt:after {
@@ -2424,7 +2433,7 @@ a.label-inverse:hover .label-arrow, a.badge-inverse:hover .label-arrow {
     margin-right:20px
 }
 .hot-posts .muted .action, .excerpt .muted .action {
-    background-color: #fff !important;
+    background-color: rgba(0, 0, 0, 0) !important;
     border: 0;
     padding: 0;
     color:#f78585 !important;
@@ -2511,7 +2520,7 @@ a.label-inverse:hover .label-arrow, a.badge-inverse:hover .label-arrow {
     clear:both;
     font-size:15px;
     border-bottom:solid 1px #e6e6e6;
-    background-color:#fbfbfb;
+    background-color: rgba(248, 251, 253, 0.75);
     padding:11px 20px 9px;
     margin:-20px -20px 20px;
     *zoom:1
@@ -2612,7 +2621,7 @@ a.label-inverse:hover .label-arrow, a.badge-inverse:hover .label-arrow {
     padding:10px 20px 9px 10px;
     line-height:18px;
     border-left:4px solid #00a67c;
-    background-color:#fbfbfb
+    background-color: rgba(248, 251, 253, 0.75)
 }
 .article-content h3 {
     font-size:16px;
@@ -2804,7 +2813,7 @@ a.label-inverse:hover .label-arrow, a.badge-inverse:hover .label-arrow {
 }
 .article-nav {
     border-top:1px solid #f2f2f2;
-    background-color:#FBFBFB;
+    background-color: rgba(248, 251, 253, 0.75);
     overflow:hidden;
     padding:15px 20px;
     font-size:15px;
@@ -2862,7 +2871,7 @@ a.label-inverse:hover .label-arrow, a.badge-inverse:hover .label-arrow {
     height:31px;
     padding:8px 20px;
     margin:0 -20px 20px;
-    background-color:#fbfbfb
+    background-color: rgba(248, 251, 253, 0.75)
 }
 .rowpage-header .share {
     margin:3px 0 0
@@ -2947,7 +2956,7 @@ a.label-inverse:hover .label-arrow, a.badge-inverse:hover .label-arrow {
 .widget {
     clear:both;
     margin-bottom:10px;
-    background-color:#fff;
+    background-color: rgba(248, 251, 253, 0.75);
 }
 .widget h2 .btn {
     position:absolute;
@@ -3132,7 +3141,7 @@ a.label-inverse:hover .label-arrow, a.badge-inverse:hover .label-arrow {
     border:1px solid #eee;
 }
 .widget_calendar table thead th {
-    background-color:#fbfbfb
+    background-color: rgba(248, 251, 253, 0.75)
 }
 .widget_calendar table tbody td a {
     display:block;
@@ -3427,7 +3436,7 @@ a.label-inverse:hover .label-arrow, a.badge-inverse:hover .label-arrow {
 }
 .c-approved {
     border-radius:2px;
-    background-color:#fbfbfb;
+    background-color: rgba(248, 251, 253, 0.75);
     border:1px solid #ccc;
     color:#999;
     display:inline-block;
@@ -4612,11 +4621,10 @@ a.label-inverse:hover .label-arrow, a.badge-inverse:hover .label-arrow {
     position:relative;
     *zoom:1
 }
-/*rss订阅*/
 .social {
     height:45px;
     padding:10px 6px;
-    background-color:#fff;
+    background-color: rgba(248, 251, 253, 0.75);
 }
 .social i {
     font-size: 2.5em;
