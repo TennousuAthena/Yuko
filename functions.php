@@ -167,11 +167,11 @@ function footerScript() {
     if ( !is_admin() ) {
         // 取消原有jQuery
         wp_deregister_script( 'jquery' );
-        wp_register_script( 'jquery',get_template_directory_uri() . '/js/jquery.min.js', false,'1.8.3');
+        wp_register_script( 'jquery',get_template_directory_uri() . '/js/jquery.min.js', false,'3.6.0');
         wp_enqueue_script( 'jquery' );
-        wp_register_script( 'scroll',get_template_directory_uri() . '/js/infinite-ajax-scroll.min.js', false,'1.8.3');
+        wp_register_script( 'scroll',get_template_directory_uri() . '/js/infinite-ajax-scroll.min.js', false,'v3.0.0-rc.1');
         wp_enqueue_script( 'scroll' );
-        wp_register_script( 'default', get_template_directory_uri() . '/js/main.js', false, '2.0', dopt('d_jquerybom_b') ? true : false );
+        wp_register_script( 'default', get_template_directory_uri() . '/js/main.js', false, '2.0', (bool)dopt('d_jquerybom_b'));
         wp_enqueue_script( 'default' );
         wp_register_style( 'fa', get_template_directory_uri() . '/css/font-awesome.min.css',false,'1.0' );
         wp_enqueue_style( 'fa' );
