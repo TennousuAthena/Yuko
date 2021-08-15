@@ -2283,7 +2283,7 @@ a.label-inverse:hover .label-arrow, a.badge-inverse:hover .label-arrow {
     position:fixed
 }
 .archive-header {
-    background-color:#fbfbfb;
+    background-color: rgba(248, 251, 253, 0.75);
     padding: 5px 20px;
     margin-bottom: 1px;
 }
@@ -4809,4 +4809,10 @@ body{
     line-height: 1.5rem;
     cursor:pointer;
     text-align: center;
+}
+.pull-right > a {
+    margin-right: 1em;
+}
+.pull-right > i {
+    color: #555555;
 }

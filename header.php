@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="renderer" content="webkit">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
-<title><?php wp_title('-', true, 'right');  echo get_option('blogname'); if (is_home ()) echo get_option('blogdescription'); if ($paged > 1) echo '-Page ', $paged; ?></title>
+<title><?php wp_title('-', true, 'right');  echo get_option('blogname');echo " - "; if (is_home ()) echo get_option('blogdescription'); if ($paged > 1) echo '-Page ', $paged; ?></title>
 <?php
 $sr_1 = 0; $sr_2 = 0; $commenton = 0; 
 if( dopt('d_sideroll_b') ){ 
@@ -34,13 +34,22 @@ if( dopt('d_headcode_b') ) echo dopt('d_headcode'); ?>
 <div id="nav-header" class="navbar">
 <ul class="nav"><?php yusi_the_menu('nav') ?>
 <li style="float:right;">
-                    <div class="toggle-search"><i class="fa fa-search"></i></div>
-<div class="search-expand" style="display: none;"><div class="search-expand-inner"><form method="get" class="searchform themeform" onsubmit="location.href='<?php echo esc_url(home_url('/search/')); ?>' + encodeURIComponent(this.s.value).replace(/%20/g, '+'); return false;" action="<?php echo esc_url( home_url( '/' ) ); ?>"><div> <input type="ext" class="search" name="s" onblur="if(this.value=='')this.value='search...';" onfocus="if(this.value=='search...')this.value='';" value="search..."></div></form></div></div>
+<div class="toggle-search"><i class="fa fa-search"></i></div>
+<div class="search-expand" style="display: none;">
+    <div class="search-expand-inner">
+        <form method="get" class="searchform themeform" onsubmit="location.href='<?php echo esc_url(home_url('/search/')); ?>' + encodeURIComponent(this.s.value).replace(/%20/g, '+'); return false;" action="<?php echo esc_url( home_url( '/' ) ); ?>">
+            <div>
+                <input type="text" class="search" name="s" autocomplete="off" placeholder="搜索其实Too Simple..">
+            </div>
+        </form>
+    </div>
+</div>
 </li>
 		</ul>
  	</div>
 </header>
-<section class="container"><div class="speedbar">
+<section class="container">
+    <div class="speedbar">
 		<?php 
 		if( dopt('d_sign_b') ){ 
 			global $current_user; 
@@ -51,8 +60,11 @@ if( dopt('d_headcode_b') ) echo dopt('d_headcode'); ?>
 			<div class="pull-right">
 				<?php
                 if(is_user_logged_in()){
-				    echo '<i class="fa fa-user"></i> '.$u_name.' &nbsp; ';
-				    echo ' &nbsp; &nbsp; <i class="fa fa-power-off"></i> ';
+                    if(current_user_can("manage_options")){
+                        echo '<i class="fa fa-certificate" aria-hidden="true"></i> <a href="/wp-admin" target="_blank">管理 </a>';
+                    }
+				    echo '<i class="fa fa-user"></i><a href="/wp-admin/profile.php" title="设置我的个人资料"> '.$u_name.' </a>';
+				    echo ' <i class="fa fa-power-off"></i> ';
 				}else{
                     echo '<i class="fa fa-user-plus"></i> <a href="/wp-login.php?action=register">注册</a> ';
 				    echo '<i class="fa fa-user"></i> ';
