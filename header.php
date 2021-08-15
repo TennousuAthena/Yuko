@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="renderer" content="webkit">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
-<title><?php wp_title('-', true, 'right');  echo get_option('blogname');echo " - "; if (is_home ()) echo get_option('blogdescription'); if ($paged > 1) echo '-Page ', $paged; ?></title>
+<title><?php wp_title('-', true, 'right');  echo get_option('blogname'); if (is_home ()) echo " - " . get_option('blogdescription'); if ($paged > 1) echo '-Page ', $paged; ?></title>
 <?php
 $sr_1 = 0; $sr_2 = 0; $commenton = 0; 
 if( dopt('d_sideroll_b') ){ 
