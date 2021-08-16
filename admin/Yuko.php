@@ -80,23 +80,6 @@ function mytheme_admin()
                     </td>
                 </tr>
                 <tr>
-                    <td class="d_tit">首页置顶推荐幻灯片</td>
-                    <td>
-                        <label class="checkbox inline">
-                            <input type="checkbox" id="d_sticky_b" name="d_sticky_b" <?php
-                            if (dopt('d_sticky_b')) {
-                                echo 'checked="checked"';
-                            }
-                            ?>>开启
-                        </label>
-                        显示<input class="d_num" name="d_sticky_count" id="d_sticky_count" type="number" value="<?php
-                        echo dopt('d_sticky_count');
-                        ?>">条 默认4条
-                        &nbsp; &nbsp;
-                        <span class="d_tip">开启后请确保您的后台-文章中设置了4篇以上的置顶文章,并且文章第一张图片像素为716*297</span>
-                    </td>
-                </tr>
-                <tr>
                     <td class="d_tit">友情链接页面</td>
                     <td>
                         <label class="checkbox inline">
