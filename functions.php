@@ -166,7 +166,7 @@ function deel_breadcrumbs(){
 function owo(){
     wp_register_style( 'owo', get_template_directory_uri() . '/css/OwO.min.css',false,'1.0' );
     wp_enqueue_style( 'owo' );
-    wp_register_script( 'owo', get_template_directory_uri() . '/js/owo.min.js', false, '1.0', true);
+    wp_register_script( 'owo', get_template_directory_uri() . '/js/OwO.min.js', false, '1.0', true);
     wp_enqueue_script( 'owo' );
 }
 
