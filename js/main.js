@@ -12,15 +12,10 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<62?'':e(parseInt(c/62)))+((c=c
 +(function($){
 $(document).ready(function(){
 
-$('.toggle-search').click(function(){
-	$('.toggle-search').toggleClass('active');
-	$('.search-expand').fadeToggle(250);
-	setTimeout(function(){$('.search-expand input').focus();},300);}
-);
-	// lazy avatar
-	$('.content .avatar, .sidebar .avatar, .pagecontent .avatar').lazyload({
-		placeholder: _deel.url+'/img/default.jpg?123',
-		event: 'scrollstop'
+	$('.toggle-search').click(function(){
+		$('.toggle-search').toggleClass('active');
+		$('.search-expand').fadeToggle(250);
+		setTimeout(function(){$('.search-expand input').focus();},300);
 	});
 	$('.wp-smiley').lazyload({
 		placeholder: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVBhXYzh8+PB/AAffA0nNPuCLAAAAAElFTkSuQmCC',

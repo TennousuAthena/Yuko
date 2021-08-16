@@ -589,7 +589,7 @@ function deel_comment_list($comment, $args, $depth) {
 
   //头像
   echo '<div class="c-avatar">';
-  echo str_replace(' src=', ' data-original=', get_avatar( $comment->comment_author_email, $size = '54' , deel_avatar_default()));
+  echo get_avatar( $comment->comment_author_email, $size = '54' , deel_avatar_default());
   //内容
   echo '<div class="c-main" id="div-comment-'.get_comment_ID().'">';
 	echo str_replace(' src=', ' data-original=', convert_smilies(get_comment_text()));
