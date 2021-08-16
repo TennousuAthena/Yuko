@@ -2,7 +2,7 @@
 if (!empty($dname)) {
     $themename = $dname . '主题';
 }
-$options = array("d_disable_browser_update", "d_beian", "d_default_avatar", "d_description", "d_keywords", "d_tui", "d_sticky_b", "d_sticky_count", "d_linkpage_cat", "d_tougao_b", "d_tougao_time", "d_tougao_mailto", "d_avatar_b", "d_avatarDate", "d_sideroll_b", "d_sideroll_1", "d_sideroll_2", "d_pingback_b", "d_autosave_b", "d_tg", "d_tg_b", "d_weibo_b", "d_weibo", "d_facebook_b", "d_facebook", "d_twitter_b", "d_twitter", "d_rss", "d_qqContact_b", "d_qqContact", "d_weixin_b", "d_weixin", "d_emailContact_b", "d_emailContact", "d_track_b", "d_track", "d_headcode_b", "d_headcode", "d_footcode_b", "d_footcode", "d_adsite_01_b", "d_adsite_01", "d_adindex_02_b", "d_adindex_02", "d_adindex_01_b", "d_adindex_01", "d_adindex_03_b", "d_adindex_03", "d_adpost_01_b", "d_adpost_01", "d_adpost_02_b", "d_adpost_02", "d_adpost_03_b", "d_adpost_03", "d_sign_b", "d_jquerybom_b", "d_ajaxpager_b", "d_thumbnail_b", "d_related_count", "d_post_views_b", "d_post_author_b", "d_post_comment_b", "d_post_time_b", "hot_list_title", "hot_list_number", "hot_list_date", "hot_list_check", "d_post_like_b", "d_singleMenu_b", "Mobiled_adindex_02_b", "Mobiled_adindex_02", "Mobiled_adpost_01_b", "Mobiled_adpost_01", "Mobiled_adpost_02_b", "Mobiled_adpost_02", "d_spamComments_b", "t_appkey_tsina");
+$options = array("d_disable_browser_update", "d_beian", "d_default_avatar", "d_description", "d_keywords", "d_tui", "d_sticky_b", "d_sticky_count", "d_linkpage_cat", "d_tougao_b", "d_tougao_time", "d_tougao_mailto", "d_avatar_b", "d_avatarDate", "d_sideroll_b", "d_sideroll_1", "d_sideroll_2", "d_pingback_b", "d_autosave_b", "d_tg", "d_tg_b", "d_weibo_b", "d_weibo", "d_facebook_b", "d_facebook", "d_twitter_b", "d_twitter", "d_rss", "d_qqContact_b", "d_qqContact", "d_weixin_b", "d_weixin", "d_emailContact_b", "d_emailContact", "d_track_b", "d_track", "d_headcode_b", "d_headcode", "d_footcode_b", "d_footcode", "d_adsite_01_b", "d_adsite_01", "d_adindex_02_b", "d_adindex_02", "d_adindex_01_b", "d_adindex_01", "d_adindex_03_b", "d_adindex_03", "d_adpost_01_b", "d_adpost_01", "d_adpost_02_b", "d_adpost_02", "d_adpost_03_b", "d_adpost_03", "d_sign_b", "d_ajaxpager_b", "d_thumbnail_b", "d_related_count", "d_post_views_b", "d_post_author_b", "d_post_comment_b", "d_post_time_b", "hot_list_title", "hot_list_number", "hot_list_date", "hot_list_check", "d_post_like_b", "d_singleMenu_b", "Mobiled_adindex_02_b", "Mobiled_adindex_02", "Mobiled_adpost_01_b", "Mobiled_adpost_01", "Mobiled_adpost_02_b", "Mobiled_adpost_02", "d_spamComments_b", "t_appkey_tsina");
 function mytheme_add_admin()
 {
     global $themename, $options;
@@ -196,19 +196,6 @@ function mytheme_admin()
                         显示<input class="d_num" name="d_related_count" id="d_related_count" type="number" value="<?php
                         echo dopt('d_related_count');
                         ?>">条 默认 8
-                    </td>
-                </tr>
-                <tr>
-                    <td class="d_tit">js底部加载</td>
-                    <td>
-                        <label class="checkbox inline">
-                            <input type="checkbox" id="d_jquerybom_b" name="d_jquerybom_b" <?php
-                            if (dopt('d_jquerybom_b')) {
-                                echo 'checked="checked"';
-                            }
-                            ?>>开启
-                        </label>
-                        <span class="d_tip">百度jQuery默认在head区域加载，自带js文件如果需要页面载入加速，请开启。如果使用了微博Appkey请不要勾选。</span>
                     </td>
                 </tr>
                 <tr>

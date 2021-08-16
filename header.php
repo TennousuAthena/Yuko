@@ -17,7 +17,7 @@ if( is_singular() ){
 }
 ?>
 <script>
-window._deel = {name: '<?php bloginfo('name') ?>',url: '<?php echo get_bloginfo("template_url") ?>', ajaxpager: '<?php echo dopt('d_ajaxpager_b') ?>', commenton: <?php echo $commenton ?>, roll: [<?php echo $sr_1 ?>,<?php echo $sr_2 ?>],appkey: {tqq: '<?php echo dopt('t_appkey_tqq') ?>',tsina: '<?php echo dopt('t_appkey_tsina') ?>'}}
+window._deel = {name: '<?php bloginfo('name') ?>',url: '<?php echo get_bloginfo("template_url") ?>', ajaxpager: '<?php echo dopt('d_ajaxpager_b') ?>', commenton: <?php echo $commenton ?>, roll: [<?php echo $sr_1 ?>,<?php echo $sr_2 ?>]}
 </script>
 <link rel="shortcut icon" href="<?php echo get_bloginfo("template_url") ?>/img/favicon.ico">
 <?php 

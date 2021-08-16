@@ -163,22 +163,30 @@ function deel_breadcrumbs(){
     return '<a title="返回首页" href="'.get_bloginfo('url').'"><i class="fa fa-home"></i></a> <small>></small> '.get_category_parents($category->term_id, true, ' <small>></small> ').'<span class="muted">'.get_the_title().'</span>';
 }
 
+function owo(){
+    wp_register_style( 'owo', get_template_directory_uri() . '/css/OwO.min.css',false,'1.0' );
+    wp_enqueue_style( 'owo' );
+    wp_register_script( 'owo', get_template_directory_uri() . '/js/owo.min.js', false, '1.0', true);
+    wp_enqueue_script( 'owo' );
+}
+
 function footerScript() {
     if ( !is_admin() ) {
-        // 取消原有jQuery
         wp_deregister_script( 'jquery' );
-        wp_register_script( 'jquery',get_template_directory_uri() . '/js/jquery.min.js', false,'3.6.0');
+
+        wp_register_script( 'jquery',get_template_directory_uri() . '/js/jquery.min.js', false,'3.6.0', true);
         wp_enqueue_script( 'jquery' );
-        wp_register_script( 'scroll',get_template_directory_uri() . '/js/infinite-ajax-scroll.min.js', false,'v3.0.0-rc.1');
+        wp_register_script( 'scroll',get_template_directory_uri() . '/js/infinite-ajax-scroll.min.js', false,'v3.0.0-rc.1', true);
         wp_enqueue_script( 'scroll' );
-        wp_register_script( 'default', get_template_directory_uri() . '/js/main.js', false, '2.0', (bool)dopt('d_jquerybom_b'));
-        wp_enqueue_script( 'default' );
+        owo();
+        wp_register_script( 'main', get_template_directory_uri() . '/js/main.js', false, '2.0', true);
+        wp_enqueue_script( 'main' );
         wp_register_style( 'fa', get_template_directory_uri() . '/css/font-awesome.min.css',false,'1.0' );
         wp_enqueue_style( 'fa' );
         wp_register_style( 'style', get_template_directory_uri() . '/style.css',false,'1.0' );
         wp_enqueue_style( 'style' );
     }  
-}  
+}
 add_action( 'wp_enqueue_scripts', 'footerScript' );
 
 //add_action( 'wp_footer', 'wppage_speed' );
@@ -446,7 +454,7 @@ function smilies_reset() {
           ':?:' => 'icon_question.gif',
     );
 }
-//smilies_reset();
+smilies_reset();
 
 
 //阻止站内文章Pingback 
@@ -592,7 +600,7 @@ function deel_comment_list($comment, $args, $depth) {
   echo get_avatar( $comment->comment_author_email, $size = '54' , deel_avatar_default());
   //内容
   echo '<div class="c-main" id="div-comment-'.get_comment_ID().'">';
-	echo str_replace(' src=', ' data-original=', convert_smilies(get_comment_text()));
+	echo convert_smilies(get_comment_text());
 	if ($comment->comment_approved == '0'){
 	  echo '<span class="c-approved">您的评论正在排队审核中，请稍后！</span><br />';
 	}
